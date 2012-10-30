@@ -1,0 +1,51 @@
+Zorbus\BannerBundle\Entity\Banner:
+    type: entity
+    table: zorbus_banner_banner
+    repositoryClass: Zorbus\BannerBundle\Entity\BannerRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+        description:
+            type: text
+            nullable: true
+        lang:
+            type: string
+            length: 5
+            nullable: true
+            default: en_US
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: '-'
+                    style: default
+                    fields:
+                        - name
+        enabled:
+            type: boolean
+            default: true
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+
+    oneToMany:
+        images:
+            targetEntity: Zorbus\BannerBundle\Entity\Image
+            mappedBy: banner
+            orderBy:
+                position: ASC

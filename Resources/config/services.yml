@@ -1,0 +1,25 @@
+parameters:
+    zorbus_banner.banner.admin.class: Zorbus\BannerBundle\Admin\BannerAdmin
+    zorbus_banner.image.admin.class: Zorbus\BannerBundle\Admin\ImageAdmin
+
+    zorbus_banner.banner.entity.class: Zorbus\BannerBundle\Entity\Banner
+    zorbus_banner.image.entity.class: Zorbus\BannerBundle\Entity\Image
+
+    zorbus_banner.banner.controller.class: SonataAdminBundle:CRUD
+    zorbus_banner.image.controller.class: SonataAdminBundle:CRUD
+
+services:
+    zorbus_banner.banner.admin:
+        class: %zorbus_banner.banner.admin.class%
+        arguments: [~, %zorbus_banner.banner.entity.class%, %zorbus_banner.banner.controller.class%]
+        calls:
+            - [setTranslationDomain, [BannerBundle]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Banners, label: Banners }
+    zorbus_banner.image.admin:
+        class: %zorbus_banner.image.admin.class%
+        arguments: [~, Zorbus\BannerBundle\Entity\Image, %zorbus_banner.image.controller.class%]
+        calls:
+            - [setTranslationDomain, [BannerBundle]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Banners, label: Images }

@@ -1,0 +1,68 @@
+Zorbus\BannerBundle\Entity\Image:
+    type: entity
+    table: zorbus_banner_image
+    repositoryClass: Zorbus\BannerBundle\Entity\ImageRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        image:
+            type: string
+            length: 255
+            nullable: false
+        enabled:
+            type: boolean
+            default: true
+            nullable: true
+        position:
+            type: integer
+            default: 1
+            nullable: true
+            gedmo:
+                - sortablePosition
+        slug:
+            type: string
+            length: 255
+            nullable: true
+            gedmo:
+                slug:
+                    separator: '-'
+                    style: default
+                    fields:
+                        - image
+        created_at:
+            type: datetime
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+    lifecycleCallbacks:
+        prePersist: [preImageUpload]
+        preUpdate: [preImageUpload]
+        postPersist: [postImageUpload]
+        postUpdate: [postImageUpload]
+        postRemove: [postRemove]
+    manyToOne:
+        banner:
+            targetEntity: Zorbus\BannerBundle\Entity\Banner
+            inversedBy: images
+            joinColumn:
+                name: banner_id
+                referencedColumnName: id
+                onDelete: CASCADE
+            gedmo:
+                - sortableGroup
