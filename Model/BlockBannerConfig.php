@@ -24,12 +24,12 @@ class BlockBannerConfig extends BlockConfig
     {
         return $this->formMapper
                         ->add('banner', 'entity', array(
-                            'class' => 'Zorbus\\BannerBundle\\Entity\\Banner',
+                            'class' => 'Zorbus\BannerBundle\Entity\Banner',
                             'attr' => array('class' => 'span5 select2'),
                             'constraints' => array(
                                 new NotBlank(),
                                 new Type(array(
-                                    'type' => 'Zorbus\\BannerBundle\\Entity\\Banner'
+                                    'type' => 'Zorbus\BannerBundle\Entity\Banner'
                                 ))
                             )
                         ))
