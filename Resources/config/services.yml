@@ -8,18 +8,28 @@ parameters:
     zorbus_banner.banner.controller.class: SonataAdminBundle:CRUD
     zorbus_banner.image.controller.class: SonataAdminBundle:CRUD
 
+    zorbus_banner.block.banner.class: Zorbus\BannerBundle\Model\BlockBannerConfig
+
 services:
     zorbus_banner.banner.admin:
         class: %zorbus_banner.banner.admin.class%
         arguments: [~, %zorbus_banner.banner.entity.class%, %zorbus_banner.banner.controller.class%]
         calls:
-            - [setTranslationDomain, [BannerBundle]]
+            - [setTranslationDomain, [ZorbusBannerBundle]]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Banners, label: Banners }
     zorbus_banner.image.admin:
         class: %zorbus_banner.image.admin.class%
         arguments: [~, Zorbus\BannerBundle\Entity\Image, %zorbus_banner.image.controller.class%]
         calls:
-            - [setTranslationDomain, [BannerBundle]]
+            - [setTranslationDomain, [ZorbusBannerBundle]]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Banners, label: Images }
+    zorbus_banner.block.banner:
+        class: %zorbus_banner.block.banner.class%
+        scope: prototype
+        arguments: ['@zorbus_block.block.admin', '@form.factory', '@http_kernel']
+        calls:
+          - [addThemes, [%zorbus_banner.banner.themes%]]
+        tags:
+            - { name: zorbus_block.block, category: Banners }

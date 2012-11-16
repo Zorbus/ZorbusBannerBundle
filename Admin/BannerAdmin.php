@@ -19,7 +19,7 @@ class BannerAdmin extends Admin
                     'required' => false,
                     'attr' => array('class' => 'ckeditor')
                 ))
-                ->add('lang')
+                ->add('lang', 'language', array('preferred_choices' => array('pt_PT', 'en')))
                 ->add('enabled', null, array('required' => false))
         ;
     }

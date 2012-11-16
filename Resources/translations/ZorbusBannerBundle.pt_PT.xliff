@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Banner List</source>
+                <target>Listar banners</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Banner Show</source>
+                <target>Mostrar banners</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Banner Create</source>
+                <target>Criar banners</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Banner Delete</source>
+                <target>Apagar banner</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Banner Edit</source>
+                <target>Editar banner</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Image List</source>
+                <target>Listar imagens</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Image Show</source>
+                <target>Mostrar imagem</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Image Create</source>
+                <target>Criar imagem</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Image Delete</source>
+                <target>Apagar imagem</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Image Edit</source>
+                <target>Editar imagem</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Name</source>
+                <target>Nome</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Lang</source>
+                <target>Língua</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Theme</source>
+                <target>Tema</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Enabled</source>
+                <target>Ativo</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Description</source>
+                <target>Descritivo</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Banners</source>
+                <target>Banners</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Images</source>
+                <target>Imagens</target>
+            </trans-unit>
+            <trans-unit id="">
+                <source></source>
+                <target></target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -24,5 +24,24 @@ class ZorbusBannerExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $container->setParameter('zorbus_banner.banner.themes', $this->getThemes($config['banner']['themes']));
+
+        $container->setParameter('zorbus_banner.banner.admin.class', $config['banner']['admin']['class']);
+
+        $container->setParameter('zorbus_banner.banner.entity.class', $config['banner']['admin']['entity']);
+
+        $container->setParameter('zorbus_banner.banner.controller.class', $config['banner']['admin']['controller']);
+    }
+    protected function getThemes(array $themes)
+    {
+        $t = array();
+
+        foreach ($themes as $controller => $name)
+        {
+            $t[$controller] = $name['name'];
+        }
+
+        return $t;
     }
 }

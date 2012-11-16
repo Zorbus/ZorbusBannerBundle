@@ -20,9 +20,40 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('zorbus_banner');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('banner')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('themes')
+                            ->defaultValue(array(
+                                'ZorbusBannerBundle:Block:banner' => array('name' => 'Default')
+                             ))
+                            ->useAttributeAsKey('controller')
+                            ->prototype('array')
+                                ->children()
+                                    ->scalarNode('name')->isRequired()->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('admin')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('class')
+                                    ->defaultValue('Zorbus\BannerBundle\Admin\BannerAdmin')
+                                ->end()
+                                ->scalarNode('entity')
+                                    ->defaultValue('Zorbus\BannerBundle\Entity\Banner')
+                                ->end()
+                                ->scalarNode('controller')
+                                    ->defaultValue('SonataAdminBundle:CRUD')
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }
