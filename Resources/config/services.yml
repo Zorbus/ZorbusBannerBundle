@@ -32,4 +32,4 @@ services:
         calls:
           - [addThemes, [%zorbus_banner.banner.themes%]]
         tags:
-            - { name: zorbus_block.block, category: Banners }
+            - { name: zorbus_block.block, category: Banner }
